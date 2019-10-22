@@ -2,64 +2,27 @@
 
 namespace App\Models;
 
-use Str;
-use Jenssegers\Date\Date;
 use Illuminate\Database\Eloquent\Model;
-use Cviebrock\EloquentSluggable\Sluggable;
 
-class Ingrendient extends Model
+class RecipeIngrendients extends Model
 {
-    use Sluggable;
-
     /*
     |--------------------------------------------------------------------------
     | GLOBAL VARIABLES
     |--------------------------------------------------------------------------
     */
 
-    protected $table = "ingredients";
+    protected $table = "recipe_ingrendients";
     protected $fillable = [
-        "name","slug","description","image"
+        "recipe_id", "ingredients_id","description"
     ];
     public $timestamps = true;
-
-    const STORAGE_PATH  = "master/ingredients/";
-    const IMAGE_PATH    = "storage/master/ingredients/";
 
     /*
     |--------------------------------------------------------------------------
     | FUNCTIONS
     |--------------------------------------------------------------------------
     */
-    
-    public static function dropdownIngrendients()
-    {
-        return self::pluck('name', 'id');
-    }
-
-    public static function upload($file)
-    {
-        $path = self::STORAGE_PATH;
-        $file_name = str_random(20) . "." . $file->getClientOriginalExtension();
-        
-        $file->storeAs(null, $file_name, 'ingredients');
-        
-        return $file_name;
-    }
-
-    public function deleteImage()
-    {
-        return unlink(public_path() ."/".  $this->image_url );
-    }
-
-    public function sluggable()
-    {
-        return [
-            'slug' => [
-                'source' => 'name'
-            ]
-        ];
-    }
 
     /*
     |--------------------------------------------------------------------------
@@ -69,7 +32,12 @@ class Ingrendient extends Model
    
     public function recipe()
     {
-        return $this->hasMany(Recipe::class, 'category_id', 'id');
+        return $this->belongsTo(Recipe::class, 'recipe_id', 'id');
+    }
+
+    public function ingredients()
+    {
+        return $this->belongsTo(Ingrendient::class, 'ingredients_id', 'id');
     }
 
     /*
@@ -83,9 +51,4 @@ class Ingrendient extends Model
     | ACCESORS
     |--------------------------------------------------------------------------
     */
-
-    public function getImageUrlAttribute()
-    {
-        return self::IMAGE_PATH . $this->image;
-    }
 }

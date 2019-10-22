@@ -69,6 +69,28 @@
                         </li>
                     </ul>
                 </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="javascript:void(0);" data-toggle="collapse"
+                       data-target="#master-recipe">
+                        <i class="fa fa-user-secret"></i>
+                        <span class="nav-link-text">Recipe</span>
+                    </a>
+                    <ul id="master-recipe" class="nav flex-column collapse collapse-level-1">
+                        <li class="nav-item">
+                            <ul class="nav flex-column">
+                                <li class="nav-item">
+                                    <a class="nav-link {{ Route::currentRouteName() == 'backend.master.recipe.index' ? "active" : "" }}"
+                                       href="{{ route('backend.master.recipe.index') }}">List Recipe</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link {{ Route::currentRouteName() == 'backend.master.recipe.create' ? "active" : "" }}"
+                                       href="{{ route('backend.master.recipe.create') }}">Create Recipe</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
             </ul>
 
             <hr class="nav-separator">

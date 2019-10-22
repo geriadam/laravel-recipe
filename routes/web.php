@@ -73,6 +73,19 @@ Route::group(['prefix' => 'admin'], function () {
                     Route::put('{ingrendient}', 'IngrendientController@update')->name('update');
                     Route::get('{ingrendient}/destroy', 'IngrendientController@destroy')->name('destroy');
                 });
+
+            // Recipe
+            Route::name('recipe.')
+                ->prefix('recipe')
+                ->middleware(['auth'])
+                ->group(function () {
+                    Route::get('', 'RecipeController@index')->name('index');
+                    Route::get('create', 'RecipeController@create')->name('create');
+                    Route::post('', 'RecipeController@store')->name('store');
+                    Route::get('{recipe}/edit', 'RecipeController@edit')->name('edit');
+                    Route::put('{recipe}', 'RecipeController@update')->name('update');
+                    Route::get('{recipe}/destroy', 'RecipeController@destroy')->name('destroy');
+                });
         });
 });
 

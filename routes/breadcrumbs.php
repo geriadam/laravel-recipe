@@ -46,3 +46,18 @@ Breadcrumbs::for('backend.master.ingrendient.edit', function ($trail, $ingrendie
     $trail->parent('backend.master.ingrendient.index');
     $trail->push('Edit Ingrendient', route('backend.master.ingrendient.edit', $ingrendient));
 });
+
+/**
+ * Breadcrumbs Master - Recipe
+ */
+Breadcrumbs::for('backend.master.recipe.index', function ($trail) {
+    $trail->push('List Recipe', route('backend.master.recipe.index'));
+});
+Breadcrumbs::for('backend.master.recipe.create', function ($trail) {
+    $trail->parent('backend.master.recipe.index');
+    $trail->push('Create Recipe', route('backend.master.recipe.create'));
+});
+Breadcrumbs::for('backend.master.recipe.edit', function ($trail, $recipe) {
+    $trail->parent('backend.master.recipe.index');
+    $trail->push('Edit Recipe', route('backend.master.recipe.edit', $recipe));
+});
