@@ -36,5 +36,30 @@ Route::group(['prefix' => 'admin'], function () {
         ->group(function () {
             Route::get('', 'BerandaController@index')->name('index');
         });
+
+    /*
+    |--------------------------------------------------------------------------
+    | MASTER
+    |--------------------------------------------------------------------------
+    */
+    Route::namespace('Backend\Master')
+        ->name('backend.master.')
+        ->middleware(['auth'])
+        ->prefix('master')
+        ->group(function () {
+
+            // Category
+            Route::name('category.')
+                ->prefix('category')
+                ->middleware(['auth'])
+                ->group(function () {
+                    Route::get('', 'CategoryController@index')->name('index');
+                    Route::get('create', 'CategoryController@create')->name('create');
+                    Route::post('', 'CategoryController@store')->name('store');
+                    Route::get('{category}/edit', 'CategoryController@edit')->name('edit');
+                    Route::put('{category}', 'CategoryController@update')->name('update');
+                    Route::get('{category}/destroy', 'CategoryController@destroy')->name('destroy');
+                });
+        });
 });
 

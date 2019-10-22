@@ -55,6 +55,11 @@ return [
             'visibility' => 'public',
         ],
 
+        'categories' => [
+            'driver' => 'local',
+            'root' => storage_path() . '/app/public/master/categories',
+        ],
+
         's3' => [
             'driver' => 's3',
             'key' => env('AWS_ACCESS_KEY_ID'),

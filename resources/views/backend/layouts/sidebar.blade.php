@@ -30,18 +30,18 @@
                     <a class="nav-link" href="javascript:void(0);" data-toggle="collapse"
                        data-target="#master-category">
                         <i class="fa fa-user-secret"></i>
-                        <span class="nav-link-text">Kategori</span>
+                        <span class="nav-link-text">Categories</span>
                     </a>
                     <ul id="master-category" class="nav flex-column collapse collapse-level-1">
                         <li class="nav-item">
                             <ul class="nav flex-column">
                                 <li class="nav-item">
-                                    <a class="nav-link"
-                                       href="#">List</a>
+                                    <a class="nav-link {{ Route::currentRouteName() == 'backend.master.category.index' ? "active" : "" }}"
+                                       href="{{ route('backend.master.category.index') }}">List Category</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link"
-                                       href="#">Tambah</a>
+                                    <a class="nav-link {{ Route::currentRouteName() == 'backend.master.category.create' ? "active" : "" }}"
+                                       href="{{ route('backend.master.category.create') }}">Create Category</a>
                                 </li>
                             </ul>
                         </li>
