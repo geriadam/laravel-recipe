@@ -15,6 +15,26 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Auth::routes();
+Route::group(['prefix' => 'admin'], function () {
 
-Route::get('/home', 'HomeController@index')->name('home');
+    /*
+    |--------------------------------------------------------------------------
+    | AUTH
+    |--------------------------------------------------------------------------
+    */
+    Auth::routes();
+
+    /*
+    |--------------------------------------------------------------------------
+    | BERANDA
+    |--------------------------------------------------------------------------
+    */
+    Route::namespace('Backend')
+        ->name('backend.beranda.')
+        ->middleware(['auth'])
+        ->prefix('beranda')
+        ->group(function () {
+            Route::get('', 'BerandaController@index')->name('index');
+        });
+});
+
