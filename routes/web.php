@@ -60,6 +60,19 @@ Route::group(['prefix' => 'admin'], function () {
                     Route::put('{category}', 'CategoryController@update')->name('update');
                     Route::get('{category}/destroy', 'CategoryController@destroy')->name('destroy');
                 });
+
+            // Ingrendients
+            Route::name('ingrendient.')
+                ->prefix('ingrendient')
+                ->middleware(['auth'])
+                ->group(function () {
+                    Route::get('', 'IngrendientController@index')->name('index');
+                    Route::get('create', 'IngrendientController@create')->name('create');
+                    Route::post('', 'IngrendientController@store')->name('store');
+                    Route::get('{ingrendient}/edit', 'IngrendientController@edit')->name('edit');
+                    Route::put('{ingrendient}', 'IngrendientController@update')->name('update');
+                    Route::get('{ingrendient}/destroy', 'IngrendientController@destroy')->name('destroy');
+                });
         });
 });
 

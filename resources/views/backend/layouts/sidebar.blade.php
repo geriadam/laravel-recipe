@@ -37,11 +37,33 @@
                             <ul class="nav flex-column">
                                 <li class="nav-item">
                                     <a class="nav-link {{ Route::currentRouteName() == 'backend.master.category.index' ? "active" : "" }}"
-                                       href="{{ route('backend.master.category.index') }}">List Category</a>
+                                       href="{{ route('backend.master.category.index') }}">List Ingrendient</a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link {{ Route::currentRouteName() == 'backend.master.category.create' ? "active" : "" }}"
-                                       href="{{ route('backend.master.category.create') }}">Create Category</a>
+                                       href="{{ route('backend.master.category.create') }}">Create Ingrendient</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="javascript:void(0);" data-toggle="collapse"
+                       data-target="#master-ingrendient">
+                        <i class="fa fa-user-secret"></i>
+                        <span class="nav-link-text">Ingrendients</span>
+                    </a>
+                    <ul id="master-ingrendient" class="nav flex-column collapse collapse-level-1">
+                        <li class="nav-item">
+                            <ul class="nav flex-column">
+                                <li class="nav-item">
+                                    <a class="nav-link {{ Route::currentRouteName() == 'backend.master.ingrendient.index' ? "active" : "" }}"
+                                       href="{{ route('backend.master.ingrendient.index') }}">List Ingrendient</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link {{ Route::currentRouteName() == 'backend.master.ingrendient.create' ? "active" : "" }}"
+                                       href="{{ route('backend.master.ingrendient.create') }}">Create Ingrendient</a>
                                 </li>
                             </ul>
                         </li>
