@@ -13,7 +13,7 @@
                 <li class="nav-item">
                     <a class="nav-link"
                        href="#">
-                        <i class="fa fa-user"></i>
+                        <i class="fa fa-home"></i>
                         <span class="nav-link-text">Home</span>
                     </a>
                 </li>
@@ -29,7 +29,7 @@
                 <li class="nav-item">
                     <a class="nav-link" href="javascript:void(0);" data-toggle="collapse"
                        data-target="#master-category">
-                        <i class="fa fa-user-secret"></i>
+                        <i class="fa fa-navicon"></i>
                         <span class="nav-link-text">Categories</span>
                     </a>
                     <ul id="master-category" class="nav flex-column collapse collapse-level-1">
@@ -51,7 +51,7 @@
                 <li class="nav-item">
                     <a class="nav-link" href="javascript:void(0);" data-toggle="collapse"
                        data-target="#master-ingrendient">
-                        <i class="fa fa-user-secret"></i>
+                        <i class="fa fa-hourglass-1"></i>
                         <span class="nav-link-text">Ingrendients</span>
                     </a>
                     <ul id="master-ingrendient" class="nav flex-column collapse collapse-level-1">
@@ -73,7 +73,7 @@
                 <li class="nav-item">
                     <a class="nav-link" href="javascript:void(0);" data-toggle="collapse"
                        data-target="#master-recipe">
-                        <i class="fa fa-user-secret"></i>
+                        <i class="fa fa-book"></i>
                         <span class="nav-link-text">Recipe</span>
                     </a>
                     <ul id="master-recipe" class="nav flex-column collapse collapse-level-1">
