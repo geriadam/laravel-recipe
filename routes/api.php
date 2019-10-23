@@ -16,3 +16,38 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+/*
+|--------------------------------------------------------------------------
+| KESEHATAN HEWAN
+|--------------------------------------------------------------------------
+*/
+Route::namespace('API\Master')
+    ->name('api.master.')
+    ->prefix('master')
+    ->group(function () {
+
+        // Category
+        Route::name('category')
+            ->prefix('category')
+            ->group(function () {
+                Route::get('', 'CategoryController@index')->name('index');
+                Route::get('{category}/detail', 'CategoryController@detail')->name('detail');
+            });
+
+        // Ingrendient
+        Route::name('ingrendient')
+            ->prefix('ingrendient')
+            ->group(function () {
+                Route::get('', 'IngrendientController@index')->name('index');
+                Route::get('{ingrendient}/detail', 'IngrendientController@detail')->name('detail');
+            });
+
+        // Recipe
+        Route::name('recipe')
+            ->prefix('recipe')
+            ->group(function () {
+                Route::get('', 'RecipeController@index')->name('index');
+                Route::get('{recipe}/detail', 'RecipeController@detail')->name('detail');
+            });
+    });
