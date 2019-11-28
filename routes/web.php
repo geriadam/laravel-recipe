@@ -11,9 +11,13 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::namespace('Frontend')
+        ->name('frontend.')
+        ->prefix('')
+        ->group(function () {
+            Route::get('', 'HomeController@index')->name('home');
+            Route::get('detail/{slug}', 'HomeController@show')->name('recipe');
+        });
 
 Route::group(['prefix' => 'admin'], function () {
 
