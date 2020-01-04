@@ -49,26 +49,6 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Exception $exception)
     {
-        if ($exception instanceof UnauthorizedException) {
-            return redirect()->back();
-        }
-
-        if ($request->expectsJson()) {
-            if($exception instanceof ModelNotFoundException){
-                return response()->json([
-                    'success' => false,
-                    'message' => "Tidak ada data yang di temukan",
-                ], Response::HTTP_NOT_FOUND);
-            }
-        }
-
-        if($exception instanceof NotFoundHttpException){
-            return response()->json([
-                'success' => false,
-                'message' => "Route tidak di temukan",
-            ], Response::HTTP_NOT_FOUND);
-        }
-
         return parent::render($request, $exception);
     }
 }

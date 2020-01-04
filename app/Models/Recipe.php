@@ -101,6 +101,11 @@ class Recipe extends Model
         return $this->hasMany(RecipeIngrendients::class, 'recipe_id', 'id');
     }
 
+    public function recipeFavorite()
+    {
+        return $this->hasMany(FavoriteRecipe::class, 'recipe_id', 'id');
+    }
+
     /*
     |--------------------------------------------------------------------------
     | SCOPES

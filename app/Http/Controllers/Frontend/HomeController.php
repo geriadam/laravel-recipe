@@ -13,13 +13,6 @@ class HomeController extends Controller
     {
         $recipes = Recipe::paginate(10);
 
-        return view('home', compact('recipes'));
-    }
-
-    public function show($slug)
-    {
-        $recipe = Recipe::whereSlug($slug)->first();
-
-        return view('recipe', compact('recipe'));   
+        return view('frontend.home', compact('recipes'));
     }
 }

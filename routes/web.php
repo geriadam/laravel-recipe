@@ -11,12 +11,44 @@
 |
 */
 
+/*
+|--------------------------------------------------------------------------
+| Home
+|--------------------------------------------------------------------------
+*/
 Route::namespace('Frontend')
         ->name('frontend.')
         ->prefix('')
         ->group(function () {
             Route::get('', 'HomeController@index')->name('home');
-            Route::get('detail/{slug}', 'HomeController@show')->name('recipe');
+        });
+
+/*
+|--------------------------------------------------------------------------
+| Recipe
+|--------------------------------------------------------------------------
+*/
+Route::namespace('Frontend')
+        ->name('frontend.recipe.')
+        ->prefix('recipe')
+        ->group(function () {
+            Route::get('', 'RecipeController@index')->name('index');
+            Route::get('show/{slug}', 'RecipeController@show')->name('show');
+            Route::get('category/{slug}', 'RecipeController@category')->name('category');
+            Route::get('favorite/{recipe}', 'RecipeController@favorite')->name('favorite');
+        });
+
+/*
+|--------------------------------------------------------------------------
+| Favorite
+|--------------------------------------------------------------------------
+*/
+Route::namespace('Frontend')
+        ->name('frontend.favorite.')
+        ->prefix('favorite')
+        ->group(function () {
+            Route::get('', 'FavoriteRecipeController@index')->name('recipe');
+            Route::get('{favorite}/destroy', 'FavoriteRecipeController@destroy')->name('recipe.destroy');
         });
 
 Route::group(['prefix' => 'admin'], function () {
@@ -93,3 +125,4 @@ Route::group(['prefix' => 'admin'], function () {
         });
 });
 
+Auth::routes();
