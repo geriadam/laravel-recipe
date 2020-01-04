@@ -2,9 +2,11 @@
 
 namespace App\Models;
 
+use Str;
+use Jenssegers\Date\Date;
 use Illuminate\Database\Eloquent\Model;
 
-class RecipeIngrendients extends Model
+class NewsLetter extends Model
 {
     /*
     |--------------------------------------------------------------------------
@@ -12,9 +14,9 @@ class RecipeIngrendients extends Model
     |--------------------------------------------------------------------------
     */
 
-    protected $table = "recipe_ingrendients";
+    protected $table = "newsletters";
     protected $fillable = [
-        "recipe_id", "ingredients_id","description"
+        "name","email"
     ];
     public $timestamps = true;
 
@@ -29,16 +31,6 @@ class RecipeIngrendients extends Model
     | RELATIONS
     |--------------------------------------------------------------------------
     */
-   
-    public function recipe()
-    {
-        return $this->belongsTo(Recipe::class, 'recipe_id', 'id');
-    }
-
-    public function ingredients()
-    {
-        return $this->belongsTo(Ingrendient::class, 'ingredients_id', 'id');
-    }
 
     /*
     |--------------------------------------------------------------------------

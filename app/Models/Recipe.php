@@ -19,12 +19,34 @@ class Recipe extends Model
 
     protected $table = "recipes";
     protected $fillable = [
-        "category_id", "title","slug","description","image","image_gallery","time"
+        "user_id",
+        "category_id", 
+        "title",
+        "slug",
+        "difficulty",
+        "perpare_time",
+        "cooking_time",
+        "serves",
+        "calories",
+        "description",
+        "directions",
+        "ingredients",
+        "status",
+        "video_link",
+        "image",
+        "image_gallery",
     ];
     public $timestamps = true;
 
     const STORAGE_PATH  = "master/recipes/";
     const IMAGE_PATH    = "storage/master/recipes/";
+
+    const DIFFICULTY_1 = "easy";
+    const DIFFICULTY_2 = "medium";
+    const DIFFICULTY_3 = "hard";
+
+    const STATUS_ACTIVE = "active";
+    const STATUS_DEACTIVE = "deactive";
 
     /*
     |--------------------------------------------------------------------------
@@ -96,9 +118,9 @@ class Recipe extends Model
         return $this->belongsTo(Category::class, 'category_id', 'id');
     }
 
-    public function recipeIngrendients()
+    public function user()
     {
-        return $this->hasMany(RecipeIngrendients::class, 'recipe_id', 'id');
+        return $this->belongsTo('App\Users', 'user_id', 'id');
     }
 
     public function recipeFavorite()
@@ -111,6 +133,16 @@ class Recipe extends Model
     | SCOPES
     |--------------------------------------------------------------------------
     */
+   
+    public function scopeActive($query)
+    {
+        return $query->whereStatus(self::STATUS_ACTIVE);
+    }
+
+    public function scopeDeactive($query)
+    {
+        return $query->whereStatus(self::STATUS_DEACTIVE);
+    }
 
     /*
     |--------------------------------------------------------------------------
