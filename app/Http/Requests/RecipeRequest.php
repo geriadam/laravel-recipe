@@ -28,10 +28,6 @@ class RecipeRequest extends FormRequest
                 return [
                     'title'                     => 'required',
                     'category_id'               => 'required',
-                    'time'                      => 'required',
-                    'description'               => 'required',
-                    'ingrendients_id.0'         => 'required',
-                    'ingrendient_description.0' => 'required',
                     'file'                      => 'required|max:20000',
                     'files'                     => 'required|max:20000',
                 ];
@@ -39,10 +35,6 @@ class RecipeRequest extends FormRequest
                 return [
                     'title'                     => 'required',
                     'category_id'               => 'required',
-                    'time'                      => 'required',
-                    'description'               => 'required',
-                    'ingrendients_id.0'         => 'required',
-                    'ingrendient_description.0' => 'required',
                 ];
             default:
                 break;

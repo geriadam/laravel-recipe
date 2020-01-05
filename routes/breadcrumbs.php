@@ -33,21 +33,6 @@ Breadcrumbs::for('backend.master.category.edit', function ($trail, $category) {
 });
 
 /**
- * Breadcrumbs Master - Ingrendient
- */
-Breadcrumbs::for('backend.master.ingrendient.index', function ($trail) {
-    $trail->push('List Ingrendient', route('backend.master.ingrendient.index'));
-});
-Breadcrumbs::for('backend.master.ingrendient.create', function ($trail) {
-    $trail->parent('backend.master.ingrendient.index');
-    $trail->push('Create Ingrendient', route('backend.master.ingrendient.create'));
-});
-Breadcrumbs::for('backend.master.ingrendient.edit', function ($trail, $ingrendient) {
-    $trail->parent('backend.master.ingrendient.index');
-    $trail->push('Edit Ingrendient', route('backend.master.ingrendient.edit', $ingrendient));
-});
-
-/**
  * Breadcrumbs Master - Recipe
  */
 Breadcrumbs::for('backend.master.recipe.index', function ($trail) {

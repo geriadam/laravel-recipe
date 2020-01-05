@@ -24,7 +24,7 @@ class Recipe extends Model
         "title",
         "slug",
         "difficulty",
-        "perpare_time",
+        "prepare_time",
         "cooking_time",
         "serves",
         "calories",

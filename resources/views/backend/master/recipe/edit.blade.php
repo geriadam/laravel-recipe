@@ -16,80 +16,78 @@
             <div class="col-sm">
                 {{ Form::open(['route' => ['backend.master.recipe.update', $recipe], 'files' => true, 'method' => 'PUT']) }}
                 <div class="form-group">
-                    <label>Title<span class="text-danger">*</span></label>
-                    {!! Form::text('title', $recipe->title, ["class" => "form-control"]) !!}
-                </div>
-                <div class="form-group">
-                    <label>Time<span class="text-danger">*</span></label>
-                    {!! Form::text('time', $recipe->time, ["class" => "form-control"]) !!}
-                </div>
-                <div class="form-group">
                     <label>Category<span class="text-danger">*</span></label>
                     {!! Form::select('category_id', $categories, $recipe->category_id, ["class" => "form-control select2"]) !!}
                 </div>
                 <div class="form-group">
-                    <label>Description<span class="text-danger">*</span></label>
-                    {!! Form::textarea('description', $recipe->description, ["class" => "form-control tinymce"]) !!}
+                    <label>Title<span class="text-danger">*</span></label>
+                    {!! Form::text('title', $recipe->title, ["class" => "form-control"]) !!}
                 </div>
-
-                <!-- Dinamik Form -->
                 <div class="row">
-                    <div class="col-md-12">
-                        <div class="card">
-                            <div class="row-template" style="display: none">
-                                <table class="table-template">
-                                    <tr id="row-{index}" class="row-item">
-                                        <td class="row-number">{indexNo}</td>
-                                        <td>
-                                            {!! Form::select('ingrendients_id[{index}]', $ingrendients, null, ["class" => "form-control"]) !!}
-                                        </td>
-                                        <td>
-                                            {!! Form::textarea('ingrendient_description[{index}]', null, ["class" => "form-control gejala", "rows" => 3]) !!}
-                                        </td>
-                                        <td>
-                                            <button type="button" class="btn btn-danger btn-sm button-remove">
-                                                <i class="fa fa-trash-o"></i>
-                                            </button>
-                                        </td>
-                                    </tr>
-                                </table>
-                            </div>
-                            <div class="table-responsive">
-                                <table class="table table-stripped table-item">
-                                    <thead>
-                                    <tr class="row-header">
-                                        <th>No</th>
-                                        <th class="w-25">Ingrendient</th>
-                                        <th>Description</th>
-                                        <th>Action</th>
-                                    </tr>
-                                    </thead>
-                                    <tbody id="container">
-                                        @foreach($recipe->recipeIngrendients()->get() as $i => $recipeIngrendients)
-                                            <tr id="row-{{ $i }}" class="row-item">
-                                                <td class="row-number">{{ ++$i }}</td>
-                                                <td>
-                                                    {!! Form::select('ingrendients_id[]', $ingrendients, $recipeIngrendients->ingredients_id, ["class" => "form-control"]) !!}
-                                                </td>
-                                                <td>
-                                                    {!! Form::textarea('ingrendient_description[]', $recipeIngrendients->description, ["class" => "form-control gejala", "rows" => 3]) !!}
-                                                </td>
-                                                <td>
-                                                </td>
-                                            </tr>
-                                        @endforeach
-                                    </tbody>
-                                </table>
-                            </div>
-                            <div class="m-3">
-                                <button type="button" class="btn btn-primary btn-block btn-clone">
-                                    <i class="fa fa-plus"></i> Add
-                                </button>
-                            </div>
+                    <div class="col-sm-3">
+                        <label>Difficulty<span class="text-danger">*</span></label>
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="form-group" >
+                            {!! Form::radio('difficulty', 'easy', false) !!} easy
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                        {!! Form::radio('difficulty', 'medium', false, ["class" => "form-control"]) !!} Medium
+                    </div>
+                    <div class="col-sm-3">
+                        {!! Form::radio('difficulty', 'hard', false, ["class" => "form-control"]) !!} Hard
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label>Prepare Time<span class="text-danger">*</span></label>
+                            {!! Form::text('prepare_time', $recipe->prepare_time, ["class" => "form-control"]) !!}
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label>Cooking Time<span class="text-danger">*</span></label>
+                            {!! Form::text('cooking_time', $recipe->cooking_time, ["class" => "form-control"]) !!}
                         </div>
                     </div>
                 </div>
-
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label>Serves<span class="text-danger">*</span></label>
+                            {!! Form::text('serves', $recipe->serves, ["class" => "form-control"]) !!}
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label>Calories</label>
+                            {!! Form::text('calories', $recipe->calories, ["class" => "form-control"]) !!}
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Description</label>
+                    {!! Form::textarea('description', $recipe->description, ["class" => "form-control tinymce"]) !!}
+                </div>
+                <div class="form-group">
+                    <label>Direction</label>
+                    {!! Form::textarea('directions', $recipe->directions, ["class" => "form-control tinymce"]) !!}
+                </div>
+                <div class="form-group">
+                    <label>Ingredients</label>
+                    {!! Form::textarea('ingredients', $recipe->ingredients, ["class" => "form-control tinymce"]) !!}
+                    <small>New line for ingredients</small>
+                </div>
+                <div class="form-group">
+                    <label>Status<span class="text-danger">*</span></label>
+                    {!! Form::select('status', ['active' => 'Active', 'deactive' => 'Deactive'], $recipe->status, ["class" => "form-control select2"]) !!}
+                </div>
+                <div class="form-group">
+                    <label>Video Link</label>
+                    {!! Form::text('video_link', $recipe->video_link, ["class" => "form-control"]) !!}
+                </div>
                 <div class="form-group">
                     <label>Image
                     <br>
@@ -97,7 +95,6 @@
                     <br>
                     <img src="{{ asset($recipe->image_url) }}" width="400" height="300">
                 </div>
-
                 <div class="form-group">
                     <label>Image Gallery<span class="text-danger">*</span></label>
                     <div class="file-loading">
@@ -114,7 +111,6 @@
                     {!! $recipe->images_gallery_label !!}
                 </div>
                 <hr>
-
                 <div class="row">
                     <div class="col-sm-6">
                         <a href="{{ route('backend.master.recipe.index') }}" class="btn btn-secondary btn-rounded">Cancel</a>
