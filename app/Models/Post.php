@@ -47,7 +47,7 @@ class Post extends Model
         $path = self::STORAGE_PATH;
         $file_name = str_random(20) . "." . $file->getClientOriginalExtension();
         
-        $file->storeAs(null, $file_name, 'recipes');
+        $file->storeAs(null, $file_name, 'post');
         
         return $file_name;
     }

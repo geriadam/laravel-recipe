@@ -28,6 +28,27 @@
             <ul class="navbar-nav flex-column">
                 <li class="nav-item">
                     <a class="nav-link" href="javascript:void(0);" data-toggle="collapse"
+                       data-target="#master-newsletter">
+                        <i class="fa fa-navicon"></i>
+                        <span class="nav-link-text">Newsletters</span>
+                    </a>
+                    <ul id="master-newsletter" class="nav flex-column collapse collapse-level-1">
+                        <li class="nav-item">
+                            <ul class="nav flex-column">
+                                <li class="nav-item">
+                                    <a class="nav-link {{ Route::currentRouteName() == 'backend.master.newsletter.index' ? "active" : "" }}"
+                                       href="{{ route('backend.master.newsletter.index') }}">List Newsletter</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link {{ Route::currentRouteName() == 'backend.master.newsletter.create' ? "active" : "" }}"
+                                       href="{{ route('backend.master.newsletter.create') }}">Create Newsletter</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="javascript:void(0);" data-toggle="collapse"
                        data-target="#master-category">
                         <i class="fa fa-navicon"></i>
                         <span class="nav-link-text">Categories</span>
@@ -68,6 +89,35 @@
                             </ul>
                         </li>
                     </ul>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="javascript:void(0);" data-toggle="collapse"
+                       data-target="#master-page">
+                        <i class="fa fa-book"></i>
+                        <span class="nav-link-text">Page</span>
+                    </a>
+                    <ul id="master-page" class="nav flex-column collapse collapse-level-1">
+                        <li class="nav-item">
+                            <ul class="nav flex-column">
+                                <li class="nav-item">
+                                    <a class="nav-link {{ Route::currentRouteName() == 'backend.master.page.index' ? "active" : "" }}"
+                                       href="{{ route('backend.master.page.index') }}">List Page</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link {{ Route::currentRouteName() == 'backend.master.page.create' ? "active" : "" }}"
+                                       href="{{ route('backend.master.page.create') }}">Create Page</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link {{ Route::currentRouteName() == 'backend.master.setting.index' ? "active" : "" }}" href="{{ route('backend.master.setting.index') }}">
+                        <i class="fa fa-book"></i>
+                        <span class="nav-link-text">Setting</span>
+                    </a>
                 </li>
             </ul>
 

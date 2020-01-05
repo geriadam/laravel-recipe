@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class IngrendientRequest extends FormRequest
+class NewsletterRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,9 +24,8 @@ class IngrendientRequest extends FormRequest
     public function rules()
     {
         return [
-            'name'        => 'required',
-            'description' => 'required',
-            'file'        => 'nullable|max:10000|mimes:jpg,jpeg,png',
+            'name'  => 'required',
+            'email' => 'required|email',
         ];        
     }
 }

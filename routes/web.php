@@ -109,6 +109,54 @@ Route::group(['prefix' => 'admin'], function () {
                     Route::put('{recipe}', 'RecipeController@update')->name('update');
                     Route::get('{recipe}/destroy', 'RecipeController@destroy')->name('destroy');
                 });
+
+            // Newsletter
+            Route::name('newsletter.')
+                ->prefix('newsletter')
+                ->middleware(['auth'])
+                ->group(function () {
+                    Route::get('', 'NewsletterController@index')->name('index');
+                    Route::get('create', 'NewsletterController@create')->name('create');
+                    Route::post('', 'NewsletterController@store')->name('store');
+                    Route::get('{newsletter}/edit', 'NewsletterController@edit')->name('edit');
+                    Route::put('{newsletter}', 'NewsletterController@update')->name('update');
+                    Route::get('{newsletter}/destroy', 'NewsletterController@destroy')->name('destroy');
+                });
+
+            // Post
+            Route::name('post.')
+                ->prefix('post')
+                ->middleware(['auth'])
+                ->group(function () {
+                    Route::get('', 'PostController@index')->name('index');
+                    Route::get('create', 'PostController@create')->name('create');
+                    Route::post('', 'PostController@store')->name('store');
+                    Route::get('{post}/edit', 'PostController@edit')->name('edit');
+                    Route::put('{post}', 'PostController@update')->name('update');
+                    Route::get('{post}/destroy', 'PostController@destroy')->name('destroy');
+                });
+
+            // Page
+            Route::name('page.')
+                ->prefix('page')
+                ->middleware(['auth'])
+                ->group(function () {
+                    Route::get('', 'PageController@index')->name('index');
+                    Route::get('create', 'PageController@create')->name('create');
+                    Route::post('', 'PageController@store')->name('store');
+                    Route::get('{page}/edit', 'PageController@edit')->name('edit');
+                    Route::put('{page}', 'PageController@update')->name('update');
+                    Route::get('{page}/destroy', 'PageController@destroy')->name('destroy');
+                });
+
+            // Setting
+            Route::name('setting.')
+                ->prefix('setting')
+                ->middleware(['auth'])
+                ->group(function () {
+                    Route::get('', 'SettingController@index')->name('index');
+                    Route::post('', 'SettingController@store')->name('store');
+                });
         });
 });
 
