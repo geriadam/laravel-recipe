@@ -10,155 +10,25 @@
             data-r-medium-nav="true" data-r-medium-dots="false" data-r-large="1" data-r-large-nav="true"
             data-r-large-dots="false" data-r-extra-large="1" data-r-extra-large-nav="true"
             data-r-extra-large-dots="false">
-            <div class="ranna-slider-content-layout1">
-                <figure class="item-figure"><a href="single-recipe1.html"><img src="{{ asset('frontend/img/slider/slide1-1.') }}jpg" alt="Product"></a></figure>
-                <div class="item-content">
-                    <span class="sub-title">SALAD</span>
-                    <h2 class="item-title"><a href="single-recipe1.html">Italiano Salad Mixed</a></h2>
-                    <ul class="item-rating">
-                        <li class="star-fill"><i class="fas fa-star"></i></li>
-                        <li class="star-fill"><i class="fas fa-star"></i></li>
-                        <li class="star-fill"><i class="fas fa-star"></i></li>
-                        <li class="star-fill"><i class="fas fa-star"></i></li>
-                        <li class="star-empty"><i class="fas fa-star"></i></li>
-                        <li><span>9<span> / 10</span></span> </li>
-                    </ul>
-                    <p>More off this less hello salamander lied porpoise much over tightly circa
-                        outside crud mightily rigorouse. </p>
-                    <ul class="entry-meta">
-                        <li><a href="#"><i class="fas fa-clock"></i>15 Mins</a></li>
-                        <li><a href="#"><i class="fas fa-user"></i>by <span>John Martin</span></a></li>
-                        <li><a href="#"><i class="fas fa-heart"></i><span>02</span> Likes</a></li>
-                    </ul>
+            @foreach($randoms as $j => $random)
+                <div class="ranna-slider-content-layout1">
+                    <figure class="item-figure"><a href="single-recipe1.html"><img src="{{ asset($random->image_url) }}" alt="Product"></a></figure>
+                    <div class="item-content">
+                        <span class="sub-title">{{ $random->category->name }}</span>
+                        <h3 class="item-title"><a href="{{ route('frontend.recipe.show', ["slug" => $random->slug]) }}">{{ $random->title }}</a></h3>
+                        {!! \Str::words($random->description, 18,'....')  !!}
+                        <ul class="entry-meta">
+                            <li><a href="#"><i class="fas fa-clock"></i>{{ $random->cooking_time }}</a></li>
+                            <li><a href="#"><i class="fas fa-user"></i>by <span>{{ $random->user->name }}</span></a></li>
+                            <li><a href="#"><i class="fas fa-heart"></i>{{ ucfirst($random->difficulty) }}</a></li>
+                        </ul>
+                    </div>
                 </div>
-            </div>
-            <div class="ranna-slider-content-layout1">
-                <figure class="item-figure"><a href="single-recipe1.html"><img src="{{ asset('frontend/img/slider/slide1-2.') }}jpg" alt="Product"></a></figure>
-                <div class="item-content">
-                    <span class="sub-title">SALAD</span>
-                    <h2 class="item-title"><a href="single-recipe1.html">Italiano Salad Mixed</a></h2>
-                    <ul class="item-rating">
-                        <li class="star-fill"><i class="fas fa-star"></i></li>
-                        <li class="star-fill"><i class="fas fa-star"></i></li>
-                        <li class="star-fill"><i class="fas fa-star"></i></li>
-                        <li class="star-fill"><i class="fas fa-star"></i></li>
-                        <li class="star-empty"><i class="fas fa-star"></i></li>
-                        <li><span>9<span> / 10</span></span> </li>
-                    </ul>
-                    <p>More off this less hello salamander lied porpoise much over tightly circa
-                        outside crud mightily rigorouse. </p>
-                    <ul class="entry-meta">
-                        <li><a href="#"><i class="fas fa-clock"></i>15 Mins</a></li>
-                        <li><a href="#"><i class="fas fa-user"></i>by <span>John Martin</span></a></li>
-                        <li><a href="#"><i class="fas fa-heart"></i><span>02</span> Likes</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="ranna-slider-content-layout1">
-                <figure class="item-figure"><a href="single-recipe1.html"><img src="{{ asset('frontend/img/slider/slide1-3.') }}jpg" alt="Product"></a></figure>
-                <div class="item-content">
-                    <span class="sub-title">SALAD</span>
-                    <h2 class="item-title"><a href="single-recipe1.html">Italiano Salad Mixed</a></h2>
-                    <ul class="item-rating">
-                        <li class="star-fill"><i class="fas fa-star"></i></li>
-                        <li class="star-fill"><i class="fas fa-star"></i></li>
-                        <li class="star-fill"><i class="fas fa-star"></i></li>
-                        <li class="star-fill"><i class="fas fa-star"></i></li>
-                        <li class="star-empty"><i class="fas fa-star"></i></li>
-                        <li><span>9<span> / 10</span></span> </li>
-                    </ul>
-                    <p>More off this less hello salamander lied porpoise much over tightly circa
-                        outside crud mightily rigorouse. </p>
-                    <ul class="entry-meta">
-                        <li><a href="#"><i class="fas fa-clock"></i>15 Mins</a></li>
-                        <li><a href="#"><i class="fas fa-user"></i>by <span>John Martin</span></a></li>
-                        <li><a href="#"><i class="fas fa-heart"></i><span>02</span> Likes</a></li>
-                    </ul>
-                </div>
-            </div>
+            @endforeach
         </div>
     </div>
 </section>
 <!-- Slider Area End Here -->
-<!-- Random Recipe Start Here -->
-<section class="padding-bottom-18">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-4 col-md-6 col-sm-12">
-                <div class="product-box-layout1">
-                    <figure class="item-figure"><a href="single-recipe1.html"><img src="{{ asset('frontend/img/product/product1.jpg') }}"
-                                alt="Product"></a></figure>
-                    <div class="item-content">
-                        <span class="sub-title">BREAKFAST</span>
-                        <h3 class="item-title"><a href="single-recipe1.html">Tomatoes Stuffed with Foie and
-                                Chanterelles</a></h3>
-                        <ul class="item-rating">
-                            <li class="star-fill"><i class="fas fa-star"></i></li>
-                            <li class="star-fill"><i class="fas fa-star"></i></li>
-                            <li class="star-fill"><i class="fas fa-star"></i></li>
-                            <li class="star-fill"><i class="fas fa-star"></i></li>
-                            <li class="star-empty"><i class="fas fa-star"></i></li>
-                            <li><span>9<span> / 10</span></span> </li>
-                        </ul>
-                        <ul class="entry-meta">
-                            <li><a href="#"><i class="fas fa-clock"></i>15 Mins</a></li>
-                            <li><a href="#"><i class="fas fa-user"></i>by <span>John Martin</span></a></li>
-                            <li><a href="#"><i class="fas fa-heart"></i><span>02</span> Likes</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6 col-sm-12">
-                <div class="product-box-layout1">
-                    <figure class="item-figure"><a href="single-recipe1.html"><img src="{{ asset('frontend/img/product/product2.jpg') }}"
-                                alt="Product"></a></figure>
-                    <div class="item-content">
-                        <span class="sub-title">DESERT</span>
-                        <h3 class="item-title"><a href="single-recipe1.html">Pumpkin Cheesecake With
-                                GingersnapCrust</a></h3>
-                        <ul class="item-rating">
-                            <li class="star-fill"><i class="fas fa-star"></i></li>
-                            <li class="star-fill"><i class="fas fa-star"></i></li>
-                            <li class="star-fill"><i class="fas fa-star"></i></li>
-                            <li class="star-fill"><i class="fas fa-star"></i></li>
-                            <li class="star-empty"><i class="fas fa-star"></i></li>
-                            <li><span>9<span> / 10</span></span> </li>
-                        </ul>
-                        <ul class="entry-meta">
-                            <li><a href="#"><i class="fas fa-clock"></i>15 Mins</a></li>
-                            <li><a href="#"><i class="fas fa-user"></i>by <span>John Martin</span></a></li>
-                            <li><a href="#"><i class="fas fa-heart"></i><span>02</span> Likes</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 d-block d-md-none d-lg-block col-sm-12">
-                <div class="product-box-layout1">
-                    <figure class="item-figure"><a href="single-recipe1.html"><img src="{{ asset('frontend/img/product/product3.jpg') }}"
-                                alt="Product"></a></figure>
-                    <div class="item-content">
-                        <span class="sub-title">JUICE</span>
-                        <h3 class="item-title"><a href="single-recipe1.html">Blueberry Juice with Lemon Crema</a></h3>
-                        <ul class="item-rating">
-                            <li class="star-fill"><i class="fas fa-star"></i></li>
-                            <li class="star-fill"><i class="fas fa-star"></i></li>
-                            <li class="star-fill"><i class="fas fa-star"></i></li>
-                            <li class="star-fill"><i class="fas fa-star"></i></li>
-                            <li class="star-empty"><i class="fas fa-star"></i></li>
-                            <li><span>9<span> / 10</span></span> </li>
-                        </ul>
-                        <ul class="entry-meta">
-                            <li><a href="#"><i class="fas fa-clock"></i>15 Mins</a></li>
-                            <li><a href="#"><i class="fas fa-user"></i>by <span>John Martin</span></a></li>
-                            <li><a href="#"><i class="fas fa-heart"></i><span>02</span> Likes</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<!-- Random Recipe End Here -->
 <!-- Trending Recipe Start Here -->
 <section class="padding-bottom-45">
     <div class="container">
@@ -168,63 +38,23 @@
                     <h2 class="item-heading">TRENDING RECIPES</h2>
                 </div>
                 <div class="row">
-                    <div class="col-12">
-                        <div class="product-box-layout1">
-                            <figure class="item-figure"><a href="single-recipe1.html"><img src="{{ asset('frontend/img/product/product4.jpg') }}"
-                                        alt="Product"></a></figure>
-                            <div class="item-content">
-                                <span class="sub-title">PASTA</span>
-                                <h2 class="item-title"><a href="single-recipe1.html">Chanterelle and Porcini
-                                        Mushroom Recipes</a></h2>
-                                <ul class="item-rating">
-                                    <li class="star-fill"><i class="fas fa-star"></i></li>
-                                    <li class="star-fill"><i class="fas fa-star"></i></li>
-                                    <li class="star-fill"><i class="fas fa-star"></i></li>
-                                    <li class="star-fill"><i class="fas fa-star"></i></li>
-                                    <li class="star-empty"><i class="fas fa-star"></i></li>
-                                    <li><span>9<span> / 10</span></span> </li>
-                                </ul>
-                                <p>More off this less hello salamander lied porpoise much over tightly circa
-                                    horse taped so innocuously side crud mightily rigorous plot life. New homes
-                                    in particular are subject.</p>
-                                <ul class="entry-meta">
-                                    <li><a href="#"><i class="fas fa-clock"></i>15 Mins</a></li>
-                                    <li><a href="#"><i class="fas fa-user"></i>by <span>John Martin</span></a></li>
-                                    <li><a href="#"><i class="fas fa-heart"></i><span>02</span> Likes</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
                     @foreach($recipes as $recipe)
                         <div class="col-md-6 col-sm-6 col-12">
                             <div class="product-box-layout1">
-                                <figure class="item-figure"><a href="single-recipe1.html"><img src="{{ asset('frontend/img/product/product5.jpg') }}"
-                                            alt="Product"></a></figure>
+                                <figure class="item-figure"><a href="{{ route('frontend.recipe.show', ['slug' => $recipe->slug]) }}"><img src="{{ asset($recipe->image_url) }}" alt="Product"></a></figure>
                                 <div class="item-content">
-                                    <span class="sub-title">CHICKEN</span>
-                                    <h3 class="item-title"><a href="single-recipe1.html">Asian Chicken Noodles</a></h3>
-                                    <ul class="item-rating">
-                                        <li class="star-fill"><i class="fas fa-star"></i></li>
-                                        <li class="star-fill"><i class="fas fa-star"></i></li>
-                                        <li class="star-fill"><i class="fas fa-star"></i></li>
-                                        <li class="star-fill"><i class="fas fa-star"></i></li>
-                                        <li class="star-empty"><i class="fas fa-star"></i></li>
-                                        <li><span>9<span> / 10</span></span> </li>
-                                    </ul>
-                                    <p>More off this less hello salamander lied porpoise much over tightly circa
-                                        outside crud mightily rigorouse. </p>
+                                    <span class="sub-title">{{ $recipe->category->name }}</span>
+                                    <h3 class="item-title"><a href="{{ route('frontend.recipe.show', ["slug" => $recipe->slug]) }}">{{ $recipe->title }}</a></h3>
+                                    {!! \Str::words($recipe->description, 18,'....')  !!}
                                     <ul class="entry-meta">
-                                        <li><a href="#"><i class="fas fa-clock"></i>15 Mins</a></li>
-                                        <li><a href="#"><i class="fas fa-user"></i>by <span>John Martin</span></a></li>
-                                        <li><a href="#"><i class="fas fa-heart"></i><span>02</span> Likes</a></li>
+                                        <li><a href="#"><i class="fas fa-clock"></i>{{ $recipe->cooking_time }}</a></li>
+                                        <li><a href="#"><i class="fas fa-user"></i>by <span>{{ $recipe->user->name }}</span></a></li>
+                                        <li><a href="#"><i class="fas fa-heart"></i>{{ ucfirst($recipe->difficulty) }}</a></li>
                                     </ul>
                                 </div>
                             </div>
                         </div>
                     @endforeach
-                </div>
-                <div class="ranna-ad-box">
-                    <a href="#"><img src="{{ asset('frontend/img/figure/figure1.jpg') }}" alt="ad"></a>
                 </div>
             </div>
         </div>

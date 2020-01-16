@@ -6,10 +6,9 @@
             @foreach($categories as $category)
                 <div class="col-lg-4 col-md-6 col-sm-6 col-12">
                     <div class="category-box-layout1">
-                        <figure class="item-figure"><a href="single-recipe1.html"><img src="{{ asset($category->image_url) }}"
-                                    alt="Product"></a></figure>
+                        <figure class="item-figure"><a href="{{ route('frontend.recipe.category', ['slug' => $category->slug]) }}"><img src="{{ asset($category->image_url) }}" alt="Product"></a></figure>
                         <div class="item-content">
-                            <h3 class="item-title"><a href="single-recipe1.html">{{ $category->name }}</a></h3>
+                            <h3 class="item-title"><a href="{{ route('frontend.recipe.category', ['slug' => $category->slug]) }}">{{ $category->name }}</a></h3>
                             <span class="sub-title"> {{ $category->recipe->count() }} Recipes</span>
                         </div>
                     </div>

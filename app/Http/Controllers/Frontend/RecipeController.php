@@ -14,9 +14,15 @@ class RecipeController extends Controller
 {
     use Crudable;
 
-    public function index()
+    public function index(Request $request)
     {
-        $recipes = Recipe::paginate(10);
+        $recipes = Recipe::query();
+
+        if(isset($request->title) && !empty($request->title)){
+            $recipes = $recipes->where('title', 'like', '%'.$request->title.'%');
+        }
+
+        $recipes = $recipes->paginate(10);
 
         return view('frontend.recipe.index', compact('recipes'));
     }

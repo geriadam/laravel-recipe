@@ -23,21 +23,11 @@
                     <label>Title<span class="text-danger">*</span></label>
                     {!! Form::text('title', null, ["class" => "form-control"]) !!}
                 </div>
-                <div class="row">
-                    <div class="col-sm-3">
-                        <label>Difficulty<span class="text-danger">*</span></label>
-                    </div>
-                    <div class="col-sm-3">
-                        <div class="form-group" >
-                            {!! Form::radio('difficulty', 'easy', false) !!} easy
-                        </div>
-                    </div>
-                    <div class="col-sm-3">
-                        {!! Form::radio('difficulty', 'medium', false, ["class" => "form-control"]) !!} Medium
-                    </div>
-                    <div class="col-sm-3">
-                        {!! Form::radio('difficulty', 'hard', false, ["class" => "form-control"]) !!} Hard
-                    </div>
+                <div class="form-group">
+                    <label>Difficulty<span class="text-danger">*</span></label> <br>
+                    {!! Form::radio('difficulty', 'easy', false) !!} easy <br>
+                    {!! Form::radio('difficulty', 'medium', false) !!} Medium <br>
+                    {!! Form::radio('difficulty', 'hard', false) !!} Hard
                 </div>
                 <div class="row">
                     <div class="col-sm-6">

@@ -49,7 +49,8 @@ class Category extends Model
 
     public function deleteImage()
     {
-        return unlink(public_path() ."/".  $this->image_url );
+        if(file_exists(public_path() ."/". $this->image_url))
+            return unlink(public_path() ."/".  $this->image_url );
     }
 
     public function sluggable()

@@ -13,6 +13,8 @@ class HomeController extends Controller
     {
         $recipes = Recipe::paginate(10);
 
-        return view('frontend.home', compact('recipes'));
+        $randoms = Recipe::inRandomOrder()->limit(5)->get();
+
+        return view('frontend.home', compact('recipes', 'randoms'));
     }
 }

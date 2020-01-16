@@ -37,6 +37,7 @@ class RecipeController extends Controller
 
     public function store(RecipeRequest $request)
     {
+        dd($request->all());
         // Check if do with file
         if ($request->has('file')) {
             $file_name = Recipe::upload($request->file('file'));

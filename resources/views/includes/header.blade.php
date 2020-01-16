@@ -13,7 +13,7 @@
                             <li><a href="{{ route('frontend.category') }}">Category</a></li>
                             <li><a href="{{ route('frontend.recipe.index') }}">Recipes</a></li>
                             <li><a href="#">Blog</a></li>
-                            <li><a href="contact.html">Contact</a></li>
+                            <li><a href="#">Contact</a></li>
                         </ul>
                     </nav>
                 </div>
@@ -26,7 +26,7 @@
                 <div class="col-lg-4 d-none d-lg-block"></div>
                 <div class="col-lg-4 d-none d-lg-block">
                     <div class="site-logo-desktop">
-                        <a href="index.html" class="main-logo"><img src="{{ asset('frontend/img/logo-dark.png') }}" alt="Site Logo"></a>
+                        <a href="{{ route('frontend.home') }}" class="main-logo"><img src="{{ asset('frontend/img/logo-dark.png') }}" alt="Site Logo"></a>
                     </div>
                 </div>
                 <div class="col-lg-4 d-none d-lg-block"></div>
