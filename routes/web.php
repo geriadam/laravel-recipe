@@ -21,6 +21,7 @@ Route::namespace('Frontend')
         ->prefix('')
         ->group(function () {
             Route::get('', 'HomeController@index')->name('home');
+            Route::get('category', 'CategoryController@index')->name('category');
         });
 
 /*

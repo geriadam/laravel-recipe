@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Str;
+use App\User;
 use Jenssegers\Date\Date;
 use Illuminate\Database\Eloquent\Model;
 use Cviebrock\EloquentSluggable\Sluggable;
@@ -120,7 +121,7 @@ class Recipe extends Model
 
     public function user()
     {
-        return $this->belongsTo('App\Users', 'user_id', 'id');
+        return $this->belongsTo(User::class, 'user_id', 'id');
     }
 
     public function recipeFavorite()
@@ -149,6 +150,22 @@ class Recipe extends Model
     | ACCESORS
     |--------------------------------------------------------------------------
     */
+   
+    public function getIngredientsLabelAttribute()
+    {
+        $text = str_replace('</p>', '', $this->ingredients);
+        $array = explode('<p>', $text);
+
+        return $array;
+    }
+
+    public function getDirectionLabelAttribute()
+    {
+        $text = str_replace('</p>', '', $this->directions);
+        $array = explode('<p>', $text);
+
+        return $array;
+    }
 
     public function getImageUrlAttribute()
     {

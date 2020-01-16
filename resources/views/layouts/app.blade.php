@@ -18,6 +18,7 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/recipe.css') }}" rel="stylesheet">
 
     @stack('after_styles')
 </head>
