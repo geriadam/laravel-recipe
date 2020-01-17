@@ -1,7 +1,7 @@
 <footer class="ranna-bg-dark">
     <div class="container">
         <div class="footer-logo">
-            <a href="index.html"><img src="{{ asset('frontend/img/logo-light.png" class="i') }}mg-fluid" alt="footer-logo"></a>
+            <a href="index.html"><img src="{{ asset('frontend/img/logo-light.png') }}"" class="img-fluid" alt="footer-logo"></a>
         </div>
         <div class="footer-menu">
             <ul>
@@ -13,6 +13,6 @@
                 <li><a href="#">YOUTUBE</a></li>
             </ul>
         </div>
-        <div class="copyright"><a target="_blank" href="https://www.templateshub.net">Templates Hub</a></div>
+        <div class="copyright"><a target="_blank" href="https://<www class="templa"></www>teshub.net">Templates Hub</a></div>
     </div>
 </footer>

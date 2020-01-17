@@ -12,8 +12,6 @@
                             <li><a href="{{ route('frontend.home') }}">Home</a></li>
                             <li><a href="{{ route('frontend.category') }}">Category</a></li>
                             <li><a href="{{ route('frontend.recipe.index') }}">Recipes</a></li>
-                            <li><a href="#">Blog</a></li>
-                            <li><a href="#">Contact</a></li>
                         </ul>
                     </nav>
                 </div>
